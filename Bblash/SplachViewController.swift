@@ -23,7 +23,7 @@ class SplachViewController: UIViewController {
         setupAppIconView()
         setupContentandLabels()
        
-        Timer.scheduledTimer(timeInterval: 100, target: self, selector: #selector(self.splashTimeOut(sender:)), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 4, target: self, selector: #selector(self.splashTimeOut(sender:)), userInfo: nil, repeats: false)
     }
     
   
@@ -74,7 +74,7 @@ class SplachViewController: UIViewController {
         NSLayoutConstraint(item: contentView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: contentView!, attribute: .leading  , relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: contentView!, attribute: .top, relatedBy: .equal, toItem: AppIconView, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        NSLayoutConstraint(item: contentView!, attribute: .height, relatedBy: .equal, toItem: view, attribute: .height, multiplier: 0.4, constant: 0).isActive = true
+        NSLayoutConstraint(item: contentView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
         
         let color = UIColor.init(red: 0, green: 162/255, blue: 255/255, alpha: 1)
         let bblashlabel = UILabel()
@@ -110,7 +110,7 @@ class SplachViewController: UIViewController {
         loadingIndicator.translatesAutoresizingMaskIntoConstraints = false
         contentView?.addSubview(loadingIndicator)
         loadingIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
-        loadingIndicator.bottomAnchor.constraint(equalTo: view!.bottomAnchor, constant: -20).isActive = true
+        loadingIndicator.bottomAnchor.constraint(equalTo: view!.bottomAnchor, constant: -1*(view.frame.height * 0.05)).isActive = true
         startRefreshing(LoadingImageView: loadingIndicator)
         
         
