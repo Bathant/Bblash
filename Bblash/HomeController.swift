@@ -116,7 +116,7 @@ class HomeController: UIViewController {
         NSLayoutConstraint(item: engBTN, attribute: .width, relatedBy: .equal, toItem: contentView, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
         engBTN.heightAnchor.constraint(equalToConstant: 45)
         
-        
+        //
         arabicBTN.addTarget(self, action:#selector(btnShowPasswordClickHoldDown), for: .touchDown)
         
         arabicBTN.addTarget(self, action:#selector(btnShowPasswordClickRelease), for: .touchUpInside)
