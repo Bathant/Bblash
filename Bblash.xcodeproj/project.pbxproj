@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0EDEFC6D1F65678600B3DE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC6C1F65678600B3DE31 /* AppDelegate.swift */; };
-		0EDEFC6F1F65678600B3DE31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC6E1F65678600B3DE31 /* ViewController.swift */; };
-		0EDEFC721F65678600B3DE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEFC701F65678600B3DE31 /* Main.storyboard */; };
+		0EDEFC6F1F65678600B3DE31 /* SplachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC6E1F65678600B3DE31 /* SplachViewController.swift */; };
 		0EDEFC741F65678600B3DE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEFC731F65678600B3DE31 /* Assets.xcassets */; };
 		0EDEFC771F65678600B3DE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEFC751F65678600B3DE31 /* LaunchScreen.storyboard */; };
 		0EDEFC821F65678600B3DE31 /* BblashTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC811F65678600B3DE31 /* BblashTests.swift */; };
 		0EDEFC8D1F65678600B3DE31 /* BblashUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC8C1F65678600B3DE31 /* BblashUITests.swift */; };
+		0EDEFC9B1F656DEF00B3DE31 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC9A1F656DEF00B3DE31 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +36,7 @@
 /* Begin PBXFileReference section */
 		0EDEFC691F65678600B3DE31 /* Bblash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bblash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDEFC6C1F65678600B3DE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0EDEFC6E1F65678600B3DE31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		0EDEFC711F65678600B3DE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0EDEFC6E1F65678600B3DE31 /* SplachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplachViewController.swift; sourceTree = "<group>"; };
 		0EDEFC731F65678600B3DE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDEFC761F65678600B3DE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EDEFC781F65678600B3DE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +46,7 @@
 		0EDEFC881F65678600B3DE31 /* BblashUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BblashUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDEFC8C1F65678600B3DE31 /* BblashUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BblashUITests.swift; sourceTree = "<group>"; };
 		0EDEFC8E1F65678600B3DE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EDEFC9A1F656DEF00B3DE31 /* HomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +98,11 @@
 			isa = PBXGroup;
 			children = (
 				0EDEFC6C1F65678600B3DE31 /* AppDelegate.swift */,
-				0EDEFC6E1F65678600B3DE31 /* ViewController.swift */,
-				0EDEFC701F65678600B3DE31 /* Main.storyboard */,
+				0EDEFC6E1F65678600B3DE31 /* SplachViewController.swift */,
 				0EDEFC731F65678600B3DE31 /* Assets.xcassets */,
 				0EDEFC751F65678600B3DE31 /* LaunchScreen.storyboard */,
 				0EDEFC781F65678600B3DE31 /* Info.plist */,
+				0EDEFC9A1F656DEF00B3DE31 /* HomeController.swift */,
 			);
 			path = Bblash;
 			sourceTree = "<group>";
@@ -234,7 +234,6 @@
 			files = (
 				0EDEFC771F65678600B3DE31 /* LaunchScreen.storyboard in Resources */,
 				0EDEFC741F65678600B3DE31 /* Assets.xcassets in Resources */,
-				0EDEFC721F65678600B3DE31 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -259,8 +258,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0EDEFC6F1F65678600B3DE31 /* ViewController.swift in Sources */,
+				0EDEFC6F1F65678600B3DE31 /* SplachViewController.swift in Sources */,
 				0EDEFC6D1F65678600B3DE31 /* AppDelegate.swift in Sources */,
+				0EDEFC9B1F656DEF00B3DE31 /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +296,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0EDEFC701F65678600B3DE31 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0EDEFC711F65678600B3DE31 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		0EDEFC751F65678600B3DE31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -507,6 +499,7 @@
 				0EDEFC931F65678600B3DE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EDEFC941F65678600B3DE31 /* Build configuration list for PBXNativeTarget "BblashTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +508,7 @@
 				0EDEFC961F65678600B3DE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0EDEFC971F65678600B3DE31 /* Build configuration list for PBXNativeTarget "BblashUITests" */ = {
 			isa = XCConfigurationList;
@@ -523,6 +517,7 @@
 				0EDEFC991F65678600B3DE31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
