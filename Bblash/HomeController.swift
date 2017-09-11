@@ -11,8 +11,13 @@ import UIKit
 class HomeController: UIViewController {
     var AppIconView :UIView?
     var contentView : UIView?
+    var arabicBTN :UIButton!
     var leadingContentView :NSLayoutConstraint!
     var topRegularContentView:NSLayoutConstraint!
+    var bottomRegularContentView:NSLayoutConstraint!
+    var HeightoficonViewConstraint :NSLayoutConstraint!
+    var trailingoficonViewConstraint:NSLayoutConstraint!
+    var arabicBtnConstraint :NSLayoutConstraint!
     var CompactHeightAnyWidth :[NSLayoutConstraint] =  []
     let color = UIColor.init(red: 0, green: 162/255, blue: 255/255, alpha: 1)
     override func viewDidLoad() {
@@ -41,10 +46,11 @@ class HomeController: UIViewController {
         AppIconView?.translatesAutoresizingMaskIntoConstraints = false
         
         view.addSubview(AppIconView!)
-        NSLayoutConstraint(item: AppIconView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0).isActive = true
+        trailingoficonViewConstraint = NSLayoutConstraint(item: AppIconView!, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1, constant: 0)
+        trailingoficonViewConstraint.isActive = true
         NSLayoutConstraint(item: AppIconView!, attribute: .leading  , relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1, constant: 0).isActive = true
         NSLayoutConstraint(item: AppIconView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0).isActive = true
-       let  HeightoficonViewConstraint =  NSLayoutConstraint(item: AppIconView!, attribute: .height, relatedBy: .equal, toItem:view, attribute: .height, multiplier: 0.5, constant: 0)
+         HeightoficonViewConstraint =  NSLayoutConstraint(item: AppIconView!, attribute: .height, relatedBy: .equal, toItem:view, attribute: .height, multiplier: 0.5, constant: 0)
         HeightoficonViewConstraint.isActive = true
         
         
@@ -101,10 +107,12 @@ class HomeController: UIViewController {
         leadingContentView.isActive = true
         topRegularContentView =  NSLayoutConstraint(item: contentView!, attribute: .top, relatedBy: .equal, toItem: AppIconView, attribute: .bottom, multiplier: 1, constant: 0)
         topRegularContentView.isActive = true
-        NSLayoutConstraint(item: contentView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0).isActive = true
-        var arabicBTN = setButton(Title: "عربي")
+   bottomRegularContentView = NSLayoutConstraint(item: contentView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        bottomRegularContentView.isActive = true
+        arabicBTN = setButton(Title: "عربي")
         contentView!.addSubview(arabicBTN)
-        arabicBTN.topAnchor.constraint(equalTo: contentView!.topAnchor, constant: view.frame.height*0.16).isActive = true
+        arabicBtnConstraint =  arabicBTN.topAnchor.constraint(equalTo: contentView!.topAnchor, constant: view.frame.height*0.16)
+        arabicBtnConstraint.isActive = true
         arabicBTN.centerXAnchor.constraint(equalTo: contentView!.centerXAnchor, constant: 0).isActive = true
         NSLayoutConstraint(item: arabicBTN, attribute: .width, relatedBy: .equal, toItem: contentView, attribute: .width, multiplier: 0.5, constant: 0).isActive = true
         arabicBTN.heightAnchor.constraint(equalToConstant: 50)
@@ -165,21 +173,40 @@ class HomeController: UIViewController {
         
         if self.traitCollection.verticalSizeClass == .regular
         {
+           
           self.view.removeConstraints(CompactHeightAnyWidth)
+            
             topRegularContentView.isActive = true
+            bottomRegularContentView.isActive = true
             leadingContentView.isActive = true
+             HeightoficonViewConstraint.isActive = true
+            trailingoficonViewConstraint.isActive = true
+            arabicBtnConstraint.isActive = true
+
             
         }
             
         else if self.traitCollection.verticalSizeClass == .compact  {
-         CompactHeightAnyWidth.append(NSLayoutConstraint(item: AppIconView, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+            bottomRegularContentView.isActive = false
+            topRegularContentView.isActive = false
+            leadingContentView.isActive = false
+            HeightoficonViewConstraint.isActive = false
+            trailingoficonViewConstraint.isActive = false
+            arabicBtnConstraint.isActive = false
             
-             CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .topMargin, multiplier: 1, constant: view.frame.height * 0.25))
+         CompactHeightAnyWidth.append(NSLayoutConstraint(item: AppIconView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0))
+           // contentView?.backgroundColor = .blue
+             CompactHeightAnyWidth.append(
+                NSLayoutConstraint(item: arabicBTN, attribute: .top, relatedBy: .equal, toItem: contentView, attribute: .top, multiplier: 1, constant: 30))
+             CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView!, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: view.frame.height * 1/6))
+             CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView!, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: view.frame.height * 1/6 * -1))
+            print("***************")
+            print(view.frame.height * 1/6 * -1)
             
-            CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView, attribute: .leading, relatedBy: .equal, toItem: AppIconView, attribute: .trailing, multiplier: 1, constant: 0))
+            CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView!, attribute: .leading, relatedBy: .equal, toItem: AppIconView, attribute: .trailing, multiplier: 1, constant: 0))
            
-            CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0))
-           CompactHeightAnyWidth.append( NSLayoutConstraint(item: AppIconView, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0))
+            CompactHeightAnyWidth.append(NSLayoutConstraint(item: contentView!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0))
+           CompactHeightAnyWidth.append( NSLayoutConstraint(item: AppIconView!, attribute: .width, relatedBy: .equal, toItem: view, attribute: .width, multiplier: 0.5, constant: 0))
             
             let verticalLine =  UIView()
             verticalLine.translatesAutoresizingMaskIntoConstraints = false
@@ -191,8 +218,7 @@ class HomeController: UIViewController {
              CompactHeightAnyWidth.append(NSLayoutConstraint(item: view, attribute: .centerY, relatedBy: .equal, toItem: verticalLine, attribute: .centerY, multiplier: 1, constant: 0))
             
             self.view.addConstraints(CompactHeightAnyWidth)
-            topRegularContentView.isActive = false
-            leadingContentView.isActive = false
+           
             
         }
         
