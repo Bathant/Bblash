@@ -17,13 +17,18 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     var searchDropDownView_labelres:UILabel!
     var dropdownmenu : UIPickerView!
     var tableview : UITableView!
+    var   searchContainer : UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         let bottomY =  setUPProgressBar()
         let bottomSearchBar =  setupSearchBar(starty: bottomY)
         settableview(starty: bottomSearchBar)
+    
         
+        
+        
+        view.addSubview(searchContainer)
         self.dropdownmenu.delegate = self
         self.dropdownmenu.dataSource = self
         self.tableview.delegate = self
@@ -33,25 +38,26 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     //*************************** Tableview Protocols  Functionalities *******************************//
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4 
+        return 4
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath as IndexPath) as! CustomCellTableViewCell
-    
-      cell.backgroundImage.image = imagesarr[indexPath.row]
+        
+        cell.backgroundImage.image = imagesarr[indexPath.row]
         
         cell.backgroundImage.contentMode = .center
+        cell.price_label.text = "4.5"
+        cell.addtitlelabel.text = "Mercedes GL 2017 Ad"
+        cell.numofviewsView_label.text = "327k"
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        var cellimageheight  = CGFloat(#imageLiteral(resourceName: "ads_image1").size.height)
+        let cellimageheight  = CGFloat(#imageLiteral(resourceName: "ads_image1").size.height)
         return cellimageheight
     }
     
@@ -59,8 +65,6 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     func settableview(starty:CGFloat){
         
         tableview = UITableView(frame: CGRect(x: 0, y: starty+view.frame.height*0.01, width: view.frame.width, height: view.frame.height - starty))
-        //  tableview.estimatedRowHeight = view.frame.height*4
-        // tableview.rowHeight = UITableViewAutomaticDimension
         view.addSubview(tableview)
         
     }
@@ -79,7 +83,7 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         print(list.count)
         return list.count
-
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -131,9 +135,9 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     }
     
     
- 
+    
     func setupSearchBar(starty: CGFloat)-> CGFloat{
-        let searchContainer  = UIView(frame: CGRect(x: 0, y: starty+starty*0.05, width: view.frame.width, height: view.frame.height*0.06))
+         searchContainer  = UIView(frame: CGRect(x: 0, y: starty+starty*0.05, width: view.frame.width, height: view.frame.height*0.06))
         // searchContainer.backgroundColor = .black
         
         
@@ -203,11 +207,6 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         return starty+starty*0.05+view.frame.height*0.06
         
     }
-    
-    
-    
-    
-    
     
     
     func  setUPProgressBar() -> CGFloat{
