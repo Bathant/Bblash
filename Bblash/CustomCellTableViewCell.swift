@@ -17,6 +17,7 @@ class CustomCellTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
     
     
@@ -28,6 +29,7 @@ class CustomCellTableViewCell: UITableViewCell {
             var frame = newFrame
             let height = #imageLiteral(resourceName: "ads_image1").size.height
             frame.size.height = height
+            frame.size.width = UIScreen.main.bounds.maxX-UIScreen.main.bounds.minX
             super.frame = frame
             
         }
@@ -35,13 +37,14 @@ class CustomCellTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        print(contentView.frame.size.width)
         //background view
         backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: contentView.frame.width, height: contentView.frame.height))
         
+        
         //Price_View
         
-        let Price_view = UIView(frame: CGRect(x: contentView.frame.width*0.1, y: contentView.frame.height*0.85, width: contentView.frame.width*0.2, height: contentView.frame.height*0.1))
+        let Price_view = UIView(frame: CGRect(x: contentView.frame.width*0.05, y: contentView.frame.height*0.85, width: contentView.frame.width*0.2, height: contentView.frame.height*0.1))
         price_label = UILabel(frame: CGRect(x:0 , y: 0, width: Price_view.frame.width, height: Price_view.frame.height))
         //price_label.text = "4.5 LE"
         price_label.textAlignment = .center
@@ -56,7 +59,7 @@ class CustomCellTableViewCell: UITableViewCell {
         
         // title for ad
         
-         addtitlelabel = UILabel(frame: CGRect(x: contentView.frame.width * 0.35, y: contentView.frame.height*0.85, width: contentView.frame.width*0.45, height: contentView.frame.height*0.1))
+         addtitlelabel = UILabel(frame: CGRect(x: contentView.frame.width * 0.3, y: contentView.frame.height*0.85, width: contentView.frame.width*0.45, height: contentView.frame.height*0.1))
        // addtitlelabel.text = "Mercedes GL 2017 Ad"
         addtitlelabel.textColor = .white
         addtitlelabel.font = UIFont.boldSystemFont(ofSize:contentView.frame.height*0.05)
@@ -66,7 +69,7 @@ class CustomCellTableViewCell: UITableViewCell {
         // number of views
         
        
-        let numofviewsView = UIView(frame: CGRect(x: contentView.frame.width*0.9, y: contentView.frame.height*0.85, width: contentView.frame.width*0.25, height: contentView.frame.height*0.1))
+        let numofviewsView = UIView(frame: CGRect(x: contentView.frame.width*0.75, y: contentView.frame.height*0.85, width: contentView.frame.width*0.2, height: contentView.frame.height*0.1))
         let  numofviewsView_image = UIImageView(frame: CGRect(x:numofviewsView.frame.width*0.05 , y: numofviewsView.frame.height*0.27, width: numofviewsView.frame.width/3, height: numofviewsView.frame.width/3*0.5))
         numofviewsView_image.image = #imageLiteral(resourceName: "numviews")
         numofviewsView_label = UILabel(frame: CGRect(x:numofviewsView.frame.width/3 , y: 0, width: numofviewsView.frame.width*2/3, height: numofviewsView.frame.height))
@@ -88,7 +91,7 @@ class CustomCellTableViewCell: UITableViewCell {
         play_image.image = #imageLiteral(resourceName: "playBtn")
         
         
-         Playbtn = UIButton(frame: CGRect(x: contentView.frame.origin.x - contentView.frame.origin.x*0.1, y: contentView.frame.origin.y, width: contentView.frame.width/2, height: contentView.frame.height/2))
+         Playbtn = UIButton(frame: CGRect(x: contentView.frame.width/2*0.84, y: contentView.frame.height/2*0.68, width: contentView.frame.width/2*0.5, height: contentView.frame.width/2*0.5))
         
         contentView.addSubview(play_image)
         contentView.addSubview(Playbtn)

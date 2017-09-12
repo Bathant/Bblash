@@ -10,6 +10,9 @@
 		0E181EA51F66EB920004F8D2 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E181EA41F66EB920004F8D2 /* ProgressBar.swift */; };
 		0E181EA71F66EC270004F8D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E181EA61F66EC270004F8D2 /* ViewController.swift */; };
 		0E181EA91F67FF5E0004F8D2 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E181EA81F67FF5E0004F8D2 /* CustomCellTableViewCell.swift */; };
+		0E3A86131F6844FB00909FF8 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A86121F6844FB00909FF8 /* SettingsViewController.swift */; };
+		0E3A86151F68477500909FF8 /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A86141F68477500909FF8 /* SettingsTableViewCell.swift */; };
+		0E3A86171F684F8900909FF8 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A86161F684F8900909FF8 /* SettingTableViewController.swift */; };
 		0EDEFC6D1F65678600B3DE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC6C1F65678600B3DE31 /* AppDelegate.swift */; };
 		0EDEFC6F1F65678600B3DE31 /* SplachViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDEFC6E1F65678600B3DE31 /* SplachViewController.swift */; };
 		0EDEFC741F65678600B3DE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDEFC731F65678600B3DE31 /* Assets.xcassets */; };
@@ -40,6 +43,9 @@
 		0E181EA41F66EB920004F8D2 /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		0E181EA61F66EC270004F8D2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E181EA81F67FF5E0004F8D2 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
+		0E3A86121F6844FB00909FF8 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0E3A86141F68477500909FF8 /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		0E3A86161F684F8900909FF8 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		0EDEFC691F65678600B3DE31 /* Bblash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bblash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDEFC6C1F65678600B3DE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EDEFC6E1F65678600B3DE31 /* SplachViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplachViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +118,9 @@
 				0E181EA41F66EB920004F8D2 /* ProgressBar.swift */,
 				0E181EA61F66EC270004F8D2 /* ViewController.swift */,
 				0E181EA81F67FF5E0004F8D2 /* CustomCellTableViewCell.swift */,
+				0E3A86121F6844FB00909FF8 /* SettingsViewController.swift */,
+				0E3A86141F68477500909FF8 /* SettingsTableViewCell.swift */,
+				0E3A86161F684F8900909FF8 /* SettingTableViewController.swift */,
 			);
 			path = Bblash;
 			sourceTree = "<group>";
@@ -269,8 +278,11 @@
 			files = (
 				0E181EA71F66EC270004F8D2 /* ViewController.swift in Sources */,
 				0EDEFC6F1F65678600B3DE31 /* SplachViewController.swift in Sources */,
+				0E3A86151F68477500909FF8 /* SettingsTableViewCell.swift in Sources */,
+				0E3A86131F6844FB00909FF8 /* SettingsViewController.swift in Sources */,
 				0E181EA91F67FF5E0004F8D2 /* CustomCellTableViewCell.swift in Sources */,
 				0EDEFC6D1F65678600B3DE31 /* AppDelegate.swift in Sources */,
+				0E3A86171F684F8900909FF8 /* SettingTableViewController.swift in Sources */,
 				0E181EA51F66EB920004F8D2 /* ProgressBar.swift in Sources */,
 				0EDEFC9B1F656DEF00B3DE31 /* HomeController.swift in Sources */,
 			);

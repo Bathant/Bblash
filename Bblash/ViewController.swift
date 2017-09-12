@@ -16,9 +16,12 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     var searchDropDownView_labelres:UILabel!
     var dropdownmenu : UIPickerView!
+    
     var tableview : UITableView!
     var   searchContainer : UIView!
     override func viewDidLoad() {
+        print("*******************")
+        print(view.frame.size.width)
         super.viewDidLoad()
         view.backgroundColor = .white
         let bottomY =  setUPProgressBar()
@@ -32,12 +35,15 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         self.dropdownmenu.delegate = self
         self.dropdownmenu.dataSource = self
         self.tableview.delegate = self
+        
         self.tableview.dataSource = self
         tableview.register(CustomCellTableViewCell.classForCoder(), forCellReuseIdentifier: "cell")
     }
     
     //*************************** Tableview Protocols  Functionalities *******************************//
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       present(SettingTableViewController(), animated: true, completion: nil)
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
@@ -52,12 +58,18 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
         cell.price_label.text = "4.5"
         cell.addtitlelabel.text = "Mercedes GL 2017 Ad"
         cell.numofviewsView_label.text = "327k"
+        cell.layer.borderColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 1
+       // let image = UIImage(named: "playBtn")
+            //   cell.accessoryType = .disclosureIndicator
+       
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let cellimageheight  = CGFloat(#imageLiteral(resourceName: "ads_image1").size.height)
+        
         return cellimageheight
     }
     
@@ -210,28 +222,8 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
     
     
     func  setUPProgressBar() -> CGFloat{
-        let progressbarview = UIView(frame: CGRect(x: 2, y: view.frame.height*0.2, width: view.frame.width-4  , height: view.frame.height*0.04))
-        progressbarview.backgroundColor = UIColor(red: 213/255, green: 213/255, blue: 213/255, alpha: 1)
-        progressbarview.layer.cornerRadius = progressbarview.frame.height/2
-        let movableview = UIView(frame: CGRect(x: 0, y: 0, width: progressbarview.frame.width*0.07, height: progressbarview.frame.height))
-        movableview.backgroundColor = UIColor(red: 0, green: 162/255, blue: 255/255, alpha: 1)
-        movableview.layer.cornerRadius = movableview.frame.height/2
-        let label  = UILabel(frame: CGRect(x: 0 , y: 0, width: movableview.frame.width, height: movableview.frame.height))
-        label.text = "10"
-        label.textColor = .white
-        label.textAlignment = .center
-        
-        movableview.addSubview(label)
-        
-        let trackview = UILabel(frame: CGRect(x: progressbarview.frame.width*0.85, y: 0, width: progressbarview.frame.width*0.2, height: progressbarview.frame.height))
-        trackview.text =  "120 جنيه"
-        trackview.textColor = .red
-        trackview.font = UIFont.boldSystemFont(ofSize:  view.frame.width*0.03)
-        
-        
-        progressbarview.addSubview(trackview)
-        
-        progressbarview.addSubview(movableview)
+       let progressbarview =  ProgressBar().ProgressBarDraw(CGRect(x: 2, y: view.frame.height*0.2, width: view.frame.width-4  , height: view.frame.height*0.04))
+       
         view.addSubview(progressbarview)
         return view.frame.height * 0.04 + view.frame.height*0.2
     }
@@ -252,4 +244,5 @@ class ViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSou
      }
      */
     
+
 }
