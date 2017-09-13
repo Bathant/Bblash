@@ -28,13 +28,36 @@ class SettingTableViewController: UIViewController,UITableViewDelegate, UITableV
     
     func setuiscreen()
     {
-         let y = setUPProgressBar()
+       let y = setUPProgressBar()
        
-        
-       
-        
         SetupTableview(starty: y)
         
+        let sharelabel  = UILabel(frame: CGRect(x: view.frame.width*0.12, y: view.frame.height*0.68, width: view.frame.width*0.7, height: view.frame.height*0.1))
+        sharelabel.text = "إدعي أصدقائك لإستخدام تطبيق ببلاش"
+        sharelabel.textAlignment = .center
+        
+        view.addSubview(sharelabel)
+        
+        
+        let social_mediaviews =  UIView(frame: CGRect(x: view.frame.width*0.15, y: view.frame.height*0.8, width:  view.frame.width*0.7, height:  view.frame.height*0.05))
+        //social_mediaviews.backgroundColor = .blue
+        let facebookimage  = UIImageView(frame: CGRect(x: social_mediaviews.frame.width*0.1, y: 0, width: social_mediaviews.frame.width/16 , height: social_mediaviews.frame.height))
+        facebookimage.image = #imageLiteral(resourceName: "Facebook-SocialMedia")
+         social_mediaviews.addSubview(facebookimage)
+          let twitterimage  = UIImageView(frame: CGRect(x: social_mediaviews.frame.width/4, y: 0, width: social_mediaviews.frame.width/6 , height: social_mediaviews.frame.height))
+        twitterimage.image = #imageLiteral(resourceName: "Twiter-SocialMedia")
+        social_mediaviews.addSubview(twitterimage)
+        
+      
+        let whatsimage  = UIImageView(frame: CGRect(x: social_mediaviews.frame.width/2, y: 0, width: social_mediaviews.frame.width/8 , height: social_mediaviews.frame.height))
+        whatsimage.image = #imageLiteral(resourceName: "Whatsapp-SocialMedia")
+        social_mediaviews.addSubview(whatsimage)
+        
+        
+        let gmailimage  = UIImageView(frame: CGRect(x: social_mediaviews.frame.width*0.7, y: 0, width: social_mediaviews.frame.width*0.18 , height: social_mediaviews.frame.height))
+        gmailimage.image = #imageLiteral(resourceName: "Gmail-SocialMedia")
+        social_mediaviews.addSubview(gmailimage)
+        view.addSubview(social_mediaviews)
         
         
         
@@ -42,7 +65,7 @@ class SettingTableViewController: UIViewController,UITableViewDelegate, UITableV
     func SetupTableview(starty: CGFloat)
     {
     
-   tableview = UITableView(frame: CGRect(x: 0, y: starty+view.frame.height*0.05, width: view.frame.width, height: view.frame.height/4+view.frame.height*0.01))
+   tableview = UITableView(frame: CGRect(x: 0, y: starty+view.frame.height*0.015, width: view.frame.width, height: view.frame.height/10*4))
         
     view.addSubview(tableview)
     
@@ -52,10 +75,10 @@ class SettingTableViewController: UIViewController,UITableViewDelegate, UITableV
          let viewx = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height*0.15))
             viewx.backgroundColor = .white
         view.addSubview(viewx)
-        let progressbarview =  ProgressBar().ProgressBarDraw(CGRect(x: 2, y: view.frame.height*0.2, width: view.frame.width-4  , height: view.frame.height*0.04))
+        let progressbarview =  ProgressBar().ProgressBarDraw(CGRect(x: 2, y: view.frame.height*0.1, width: view.frame.width-4  , height: view.frame.height*0.04))
         
         view.addSubview(progressbarview)
-        return view.frame.height * 0.04 + view.frame.height*0.2
+        return view.frame.height * 0.04 + view.frame.height*0.1
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,16 +102,14 @@ class SettingTableViewController: UIViewController,UITableViewDelegate, UITableV
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("height from tableview !!!!")
+        print(view.frame.height/10)
+        return view.frame.height/10
+    }
   
     
 
-    func settableview(starty:CGFloat){
-        
-        tableview = UITableView(frame: CGRect(x: 0, y: starty+view.frame.height*0.01, width: view.frame.width, height: view.frame.height - starty))
-        view.addSubview(tableview)
-        
-    }
     
     
     //#############   END OF Tableview Protocols  Functionalities #####################################//

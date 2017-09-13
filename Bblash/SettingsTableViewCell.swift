@@ -24,6 +24,8 @@ class SettingsTableViewCell: UITableViewCell {
         set (newFrame) {
             var frame = newFrame
             frame.size.width = UIScreen.main.bounds.maxX-UIScreen.main.bounds.minX
+            frame.size.height = (UIScreen.main.bounds.maxY-UIScreen.main.bounds.minY)/10
+          
             super.frame = frame
             
         }
@@ -31,10 +33,11 @@ class SettingsTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        print("height of the cell !!!")
+        print(contentView.frame.height)
         label = UILabel(frame: CGRect(x: contentView.frame.width*0.05, y: 0, width: contentView.frame.width*0.7, height: contentView.frame.height))
         
-       Arrowindicator = UIImageView(frame: CGRect(x: contentView.frame.width*0.8, y: contentView.frame.height*0.05, width: contentView.frame.width*0.1, height: contentView.frame.width*0.1))
+       Arrowindicator = UIImageView(frame: CGRect(x: contentView.frame.width*0.8, y:contentView.frame.height/2*0.6, width: contentView.frame.width*0.08, height: contentView.frame.width*0.08))
         Arrowindicator.image = #imageLiteral(resourceName: "Bluearrow")
         
         
