@@ -13,18 +13,27 @@ import GoogleMobileAds
 class VideoPage:UIViewController,GADRewardBasedVideoAdDelegate{
 
     var main:MainScreen!
-   // var container:UIView!
+    var container:UIView!
     override func viewDidLoad() {
         view.backgroundColor=UIColor.init(red: 237/255, green: 236/255, blue: 239/255, alpha: 1)
-       // print("inside controller")
-        //print(container.frame.height)
-        let button=RoundFrame().AddFrame(viewx: view, x: view.frame.width*0.275, y: view.frame.height/2-(view.frame.height*0.6*0.1)/2, width: view.frame.width*0.45, height: view.frame.height*0.6*0.1, stroke: true, stroke_color: .white, fill_color: Colors().Blue(), text_color: .white, text: "Watch Video")
-        
-        button.addTarget(self, action: #selector(watchvideo), for: .touchUpInside)
-        GADRewardBasedVideoAd.sharedInstance().delegate = self
         
     }
-  
+    func setupScreen(){
+    
+        print("videoooooo")
+        print(self.view.frame.height)
+        print(UIScreen.main.bounds.height)
+        
+        let button=RoundFrame().AddFrame(viewx: view, x: self.view.frame.width*0.275, y: view.frame.height*0.5-(view.frame.height*0.6*0.2)/2, width: view.frame.width*0.45, height: view.frame.height*0.6*0.2, stroke: true, stroke_color: .white, fill_color: Colors().Blue(), text_color: .white, text: "Watch Video")
+        print(view.frame.height*0.5-(view.frame.height*0.6*0.2)/2)
+        let y   = view.frame.height*0.5-(view.frame.height*0.6*0.2)/2
+        print(y)
+        //print(view.frame.height-(y+button.frame.height))
+        button.addTarget(self, action: #selector(watchvideo), for: .touchUpInside)
+        GADRewardBasedVideoAd.sharedInstance().delegate = self
+
+    
+    }
     
     func watchvideo(_ sender: UIButton!) {
         var request=GADRequest()
@@ -83,6 +92,7 @@ class VideoPage:UIViewController,GADRewardBasedVideoAdDelegate{
     
     func getScreen(main:MainScreen){
         self.main=main
+        print(view.frame.height)
     }
 
 

@@ -25,7 +25,7 @@ class MainScreen: UIViewController{
     var TargetSettingview:UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+        
         ScreenUi()
         
     }
@@ -118,14 +118,22 @@ class MainScreen: UIViewController{
             
         }
         
-        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height))
+        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height-(gray_line.frame.origin.y+3)))
         
-        let controller=VideoPage()
-        
-        addChildViewController(controller)
-        
-        container.addSubview((controller.view)!)
       
+        
+     
+        let controller=VideoPage()
+        controller.view.frame = CGRect(x: 0, y:  0 , width: container.frame.width, height: container.frame.height)
+        controller.setupScreen()
+       
+        addChildViewController(controller)
+          
+        print("container height ")
+        print(container.frame.height)
+        container.addSubview((controller.view)!)
+       
+
         controller.didMove(toParentViewController: self)
         
         view.addSubview(container)
@@ -135,50 +143,44 @@ class MainScreen: UIViewController{
         
     }
     func pervious_view(_ sender : UIButton){
-//        print("pervious view!!")
-//           var subview =  container.subviews
-//        print(subview.count)
-//        print(subview.)
-//        print(SettingsPage().view.description)
-//        print(TargetSettings().view.description)
-//        print(VideoPage().view.description)
-//        //let n = subview.popLast()
-//        //print()
-//        if subview[0].description.isEqual(SettingsPage().view.description) {
-//        print("i entered here !!")
-//         self.OpenVideos()
-//        }
-//        else{
-//        
-//            if   subview[0] == TargetSettings().view{
-//                print("i entered here ??")
-//                self.OpenSettings()
-//            }
-      if Settingview.isDescendant(of: container)
-      {
-        OpenVideos()
+       
+        if Settingview.isDescendant(of: container)
+        {
+              OpenVideos()
+           
+           
         }
-      else {
-        
-        OpenSettings()
+        else {
+            
+            OpenSettings()
         }
         
-      
-    
+        self.container.frame = CGRect(x: self.container.frame.width, y:  gray_line.frame.origin.y+3 , width: self.container.frame.width, height: self.container.frame.height)
+        UIView.animate(withDuration: 0.3)
+        {
+            self.container.frame = CGRect(x: 0, y:  self.gray_line.frame.origin.y+3 , width: self.container.frame.width, height: self.container.frame.height)
+        }
+        
         
     }
     
     func OpenTargetSettings(){
         container.isHidden = true
         backBtnView.isHidden = false
-        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height))
+        print("controller ")
+        
+        print(view.frame.height)
+        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height-(25+view.frame.width*0.33*0.4+13+view.frame.height*0.05-3)))
+        
         print("containeeeeeeer ")
         print(container.frame.height)
         let controller=TargetSettings()
+         controller.view.frame = CGRect(x: 0, y:  0 , width: container.frame.width, height: container.frame.height)
         controller.setupMain(main: self)
         controller.setuiScreen()
         addChildViewController(controller)
-        
+       
+
         container.addSubview((controller.view)!)
         TargetSettingview = (controller.view)!
         controller.didMove(toParentViewController: self)
@@ -192,8 +194,10 @@ class MainScreen: UIViewController{
     func OpenSettings(){
         container.isHidden = true
         backBtnView.isHidden = false
-        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height-(25+view.frame.width*0.33*0.4+13+view.frame.height*0.05)))
+        container=UIView(frame: CGRect(x: 0, y: gray_line.frame.origin.y+3, width: view.frame.width, height: view.frame.height-(25+view.frame.width*0.33*0.4+13+view.frame.height*0.05-3)))
         let controller=SettingsPage()
+         controller.view.frame = CGRect(x: 0, y:  0 , width: container.frame.width, height: container.frame.height)
+
         controller.setupManin(m: self)
         controller.setupUI()
         addChildViewController(controller)

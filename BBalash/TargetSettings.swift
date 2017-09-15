@@ -119,7 +119,7 @@ class TargetSettings: UIViewController {
         savechanges.addTarget(self, action: #selector(EditTargetLabel), for: .touchUpInside)
         
         
-        let statsticslabel = UILabel(frame: CGRect(x: view.frame.width*0.1, y: y+savechanges.frame.height+view.frame.height*0.05 , width: view.frame.width*0.5, height: view.frame.height*0.06))
+        let statsticslabel = UILabel(frame: CGRect(x: view.frame.width*0.1, y: y+savechanges.frame.height+view.frame.height*0.05 , width: view.frame.width*0.5, height: view.frame.height*0.075))
         print("view of controller ")
         print(view.frame.height)
         
@@ -132,11 +132,11 @@ class TargetSettings: UIViewController {
         
         var label : UILabel!
         label = LabelWithInfo(labels :labels[0], label_info :labels_value[0], y:statsticslabel.frame.origin.y+statsticslabel.frame.height,label_infowidth:view.frame.width*0.15,stroke:false, strockcolor:.white , fillcolor: .gray ,textcolor: .white )
-        label = LabelWithInfo(labels :labels[1], label_info :labels_value[1], y:label.frame.origin.y+label.frame.height+view.frame.height*0.04,label_infowidth:view.frame.width*0.30,stroke:false, strockcolor:.white , fillcolor: Colors().Blue() ,textcolor: .white )
+        label = LabelWithInfo(labels :labels[1], label_info :labels_value[1], y:label.frame.origin.y+label.frame.height+view.frame.height*0.053,label_infowidth:view.frame.width*0.30,stroke:false, strockcolor:.white , fillcolor: Colors().Blue() ,textcolor: .white )
         
-        label = LabelWithInfo(labels :labels[2], label_info :labels_value[2], y: label.frame.origin.y+label.frame.height+view.frame.height*0.04,label_infowidth:view.frame.width*0.35,stroke:false, strockcolor:.white , fillcolor: Colors().Yellow() ,textcolor: .white )
+        label = LabelWithInfo(labels :labels[2], label_info :labels_value[2], y: label.frame.origin.y+label.frame.height+view.frame.height*0.053,label_infowidth:view.frame.width*0.35,stroke:false, strockcolor:.white , fillcolor: Colors().Yellow() ,textcolor: .white )
         
-        label = LabelWithInfo(labels :labels[3], label_info :labels_value[3], y: label.frame.origin.y+label.frame.height+view.frame.height*0.04,label_infowidth:view.frame.width*0.43,stroke:true, strockcolor:Colors().Yellow() , fillcolor: UIColor.init(red: 237/255, green: 236/255, blue: 239/255, alpha: 1) ,textcolor: Colors().Blue() )
+        label = LabelWithInfo(labels :labels[3], label_info :labels_value[3], y: label.frame.origin.y+label.frame.height+view.frame.height*0.053,label_infowidth:view.frame.width*0.43,stroke:true, strockcolor:Colors().Yellow() , fillcolor: UIColor.init(red: 237/255, green: 236/255, blue: 239/255, alpha: 1) ,textcolor: Colors().Blue() )
         
         
         
@@ -158,7 +158,7 @@ class TargetSettings: UIViewController {
     {
         let label1 =   Createlabel(y:y, text: labels)
         
-        let label1_info = RoundFrame().AddFrameToLabels(viewx: view, x:  view.frame.width*0.05, y: label1.frame.origin.y+label1.frame.height, width: label_infowidth, height: view.frame.height*0.035, stroke: stroke, stroke_color: strockcolor, fill_color: fillcolor, text_color: textcolor, text: label_info)
+        let label1_info = RoundFrame().AddFrameToLabels(viewx: view, x:  view.frame.width*0.05, y: label1.frame.origin.y+label1.frame.height, width: label_infowidth, height: view.frame.height*0.045, stroke: stroke, stroke_color: strockcolor, fill_color: fillcolor, text_color: textcolor, text: label_info)
         label1_info.font = UIFont.boldSystemFont(ofSize:view.frame.width*0.03)
         
         return label1
