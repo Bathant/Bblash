@@ -1,0 +1,15 @@
+PODS:
+  - Google-Mobile-Ads-SDK (7.22.0)
+  - IQKeyboardManagerSwift (4.0.11)
+
+DEPENDENCIES:
+  - Google-Mobile-Ads-SDK
+  - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  Google-Mobile-Ads-SDK: 1bdf1a4244d0553b1840239874c209c01aef055f
+  IQKeyboardManagerSwift: 10f0a6b8ea2904c8943c0e1a116c99f5b8ad83af
+
+PODFILE CHECKSUM: ce3757aa8f21230e5b709dd57b5b8caab20f1495
+
+COCOAPODS: 1.2.1
