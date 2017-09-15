@@ -43,7 +43,7 @@ class ProgressBar: UIView {
         print(minprogress)
         print(maxprogress)
         let progressBlue=UIView(frame: CGRect(x: 0, y: 0, width: minprogress*self.frame.width/perviousMax  , height: self.frame.height))
-       
+       //
         progressBlue.layer.cornerRadius = self.frame.height/2
         progressBlue.backgroundColor=UIColor.init(red: 32/255, green: 141/255, blue: 1, alpha: 1)
         progressBlue.clipsToBounds=true
